@@ -55,7 +55,7 @@ const getUrlDetails = async (req, res) => {
 
 const updateShortUrl = async (req, res) => {
     const { url } = req.body;
- 
+
     if (!url) {
         return res.status(400).json({ message: 'Please provide a URL' });
     }

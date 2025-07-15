@@ -6,7 +6,7 @@ const createShortUrl = async (req, res) => {
     if (!url || !url.match(/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i)) {
         return res.status(400).json({ message: 'Invalid or missing URL' });
     }
- 
+
     try {
         const { nanoid } = await import('nanoid');
         let shortCode;

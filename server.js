@@ -17,6 +17,8 @@ const startServer = async () => {
         app.use('/api/shorten', urlRoutes);
 
         // Catch-all route for redirection
+        // This should be the last route defined to avoid conflicts with API routes
+        
         app.get('/:shortCode', async (req, res) => {
             try {
                 const urlEntry = await Url.findOne({ where: { shortCode: req.params.shortCode } });
@@ -39,6 +41,7 @@ const startServer = async () => {
         console.error('Error starting server:', error);
         process.exit(1);
     }
+        
 };
 
 startServer();
